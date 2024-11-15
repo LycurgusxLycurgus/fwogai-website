@@ -1,0 +1,172 @@
+/* styles.css */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('assets/background.webp');
+    background-size: 100% 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    /* Add media query for mobile devices */
+    @media (max-width: 768px) {
+        background-size: auto 100vh;
+        background-position: center center;
+    }
+}
+
+/* Icons Container */
+.icons-container {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.icon:hover {
+    transform: scale(1.1) translateY(-2px);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Central Container */
+.central-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+#central-image {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+    display: block;
+}
+
+#central-image:hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Bottom Link */
+.bottom-link {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+}
+
+.bottom-link a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.bottom-link a:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Speech Bubble Styles */
+.speech-bubble {
+    position: absolute;
+    max-width: 250px;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    font-size: 16px;
+    color: #333333;
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #ffffff;
+    bottom: -20px;
+    left: 20px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.click-hint {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.central-container:hover .click-hint {
+    opacity: 1;
+}
+
+/* Add media query for mobile */
+@media (max-width: 768px) {
+    .click-hint {
+        opacity: 1;  /* Always visible on mobile */
+        bottom: -50px;  /* Slightly lower on mobile */
+    }
+}
